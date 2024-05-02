@@ -173,9 +173,16 @@ namespace calculator
         //This method is the event handler for when the "plus" button (plusBt) is clicked. It parses the value in the textBox control as a double, clears the text box, and sets the operators variable to "+".
         private void plusBt_Click(object sender, EventArgs e)
         {
-            firstValue = double.Parse(textBox.Text);
-            textBox.Clear();
-            operators = "+";
+            try
+            {
+                firstValue = double.Parse(textBox.Text);
+                textBox.Clear();
+                operators = "+";
+            }
+            catch 
+            {
+                operators = "+";
+            }
         }
 
 
@@ -191,8 +198,7 @@ namespace calculator
 
             catch 
             {
-                textBox.Text = "error";
-                textBox.Clear();
+                operators = "-";
             }
         }
 
@@ -200,18 +206,32 @@ namespace calculator
         //It follows the same pattern as the previous methods but sets the operators variable to "*".
         private void multiplyBt_Click(object sender, EventArgs e)
         {
-            firstValue = double.Parse(textBox.Text);
-            textBox.Clear();
-            operators = "*";
+            try
+            {
+                firstValue = double.Parse(textBox.Text);
+                textBox.Clear();
+                operators = "*";
+            }
+            catch
+            { 
+                operators = "*";
+            }
         }
 
 
         //It also follows the same pattern as the previous methods but sets the operators variable to "/".
         private void divideBt_Click(object sender, EventArgs e)
         {
-            firstValue = double.Parse(textBox.Text);
-            textBox.Clear();
-            operators = "/";
+            try
+            {
+                firstValue = double.Parse(textBox.Text);
+                textBox.Clear();
+                operators = "/";
+            }
+            catch 
+            { 
+                operators = "/"; 
+            }
         }
 
 
